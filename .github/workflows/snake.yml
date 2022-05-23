@@ -19,7 +19,7 @@ jobs:
             dist/github-contribution-snake.svg?palette=github-light
             dist/github-contribution-snake-dark.svg?palette=github-dark
       - name: Push images to output branch
-        uses: crazy-max/ghaction-github-pages@v2.6
+        uses: crazy-max/ghaction-github-pages@v2.6.0
         with:
           target_branch: output
           build_dir: dist

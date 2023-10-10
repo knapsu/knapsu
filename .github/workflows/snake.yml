@@ -7,17 +7,19 @@ on:
 
 jobs:
   generate:
-    name: Generate
+    name: Generate Snake
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
     steps:
       - name: Generate SVG images
-        uses: Platane/snk/svg-only@v2
+        uses: Platane/snk/svg-only@v3
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
             dist/github-contribution-snake.svg?palette=github-light
             dist/github-contribution-snake-dark.svg?palette=github-dark
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Push images to output branch
         uses: crazy-max/ghaction-github-pages@v2.6.0
         with:
